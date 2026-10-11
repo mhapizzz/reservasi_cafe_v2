@@ -14,22 +14,24 @@
             <h6 class="m-0 font-weight-bold text-primary">Tambah Meja</h6>
         </div>
         <div class="card-body">
-            <label class="form-label mb-2">Nomor Meja</label>
-            <input type="text" class="form-control mb-2" placeholder="Nomor Meja">
+            <form action="{{ route('admin.table.store') }}" method="post">
+                @csrf
+                <label class="form-label mb-2">Nomor Meja</label>
+                <input type="text" class="form-control mb-2" placeholder="Nomor Meja" name="nomor_meja">
 
-            <label class="form-label mb-2">Okupasi</label>
-            <input type="text" class="form-control mb-2" placeholder="Okupasi">
+                <label class="form-label mb-2">Okupasi</label>
+                <input type="text" class="form-control mb-2" placeholder="Okupasi" name="okupasi">
 
-            <label class="form-label mb-2">Tipe</label>
-            <select class="custom-select mb-2">
-                <option selected>Pilih Tipe</option>
-                <option value="1">Outdoor</option>
-                <option value="2">Indoor</option>
-                <option value="3">VIP</option>
-            </select>
+                <label class="form-label mb-2">Tipe</label>
+                <select class="custom-select mb-2" name="tipe">
+                    <option selected>Pilih Tipe</option>
+                    <option value="outdoor">Outdoor</option>
+                    <option value="indoor">Indoor</option>
+                    <option value="vip">VIP</option>
+                </select>
 
-            <button type="button" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
         </div>
     </div>
 @endsection
-

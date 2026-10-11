@@ -28,15 +28,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>Outdoor</td>
-                                        <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($tables as $table)
+                                        <tr>
+                                            <td>{{ $table->nomor_meja }}</td>
+                                            <td>{{ $table->okupasi }}</td>
+                                            <td>{{ $table->tipe }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.table.edit', $table->id) }}"
+                                                    class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('admin.table.destroy', $table->id) }}" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"
+                                                    class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
